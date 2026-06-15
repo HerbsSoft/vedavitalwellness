@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>World Health Organization - INDIA</title>
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <link type="text/css" href="order_me.min.css" rel="stylesheet" media="all">
+  <style>
+    :root {
+      --primary: #e74c3c;
+      --secondary: #f39c12;
+      --accent: #2e345c;
+      --text: #1a1a1a;
+      --bg: #f8f9fa;
+      --white: #ffffff;
+      --radius: 12px;
+      --shadow: 0 8px 30px rgba(0,0,0,0.14);
+      --shadow-sm: 0 4px 12px rgba(0,0,0,0.08);
+      --transition: all 0.3s ease;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { width: 100%; overflow-x: hidden; }
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 16px; line-height: 1.6;
+      color: var(--text); background: var(--bg);
+    }
+    h1, h2, h3, h4, h5, h6, p { margin-top: 0; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    .navbar {
+      position: sticky; top: 0; z-index: 1040;
+      background: var(--accent) !important;
+      padding: 10px 15px;
+      display: flex; align-items: center; justify-content: space-between;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+      gap: 12px;
+    }
+    .navbar a { flex-shrink: 0; }
+    .navbar img { height: 48px; width: auto; }
+    .navbar h1 {
+      flex: 1; text-align: center; color: #fff; font-size: 16px; margin: 0;
+    }
+    .navbar h1 p { margin: 4px 0 0; font-size: 13px; color: #d1d5ff; }
+
+    .main-wrap { background: var(--white); padding: 25px 15px 40px; }
+    .container-custom { max-width: 900px; margin: 0 auto; }
+
+    .badge-info {
+      display: inline-block;
+      background: #e3f2fd; color: #0d47a1;
+      padding: 6px 14px; border-radius: 20px;
+      font-size: 13px; font-weight: 600;
+    }
+
+    .hero-title {
+      font-size: 24px; line-height: 1.35; color: var(--accent);
+      text-align: center; margin: 18px 0;
+    }
+    .hero-badge {
+      background: linear-gradient(135deg, #d4edda, #c3e6cb);
+      color: #155724; border-left: 5px solid #28a745;
+      padding: 14px 18px; border-radius: 8px;
+      font-weight: 700; text-align: center; margin-bottom: 24px;
+    }
+
+    .benefit-list {
+      background: #fff7ed; border: 1px solid #ffe4cc;
+      border-radius: 10px; padding: 18px 22px;
+    }
+    .benefit-list ul { margin: 0; padding-left: 20px; }
+    .benefit-list li { margin-bottom: 10px; font-size: 16px; color: #4a2c0f; }
+    .benefit-list li:last-child { margin-bottom: 0; }
+
+    .btn-main, .button-bottom a, .order-btn, .open-popup-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 100%; max-width: 360px; margin: 14px auto;
+      padding: 16px 28px; border-radius: 50px; border: none;
+      font-size: 18px; font-weight: 700; color: #fff; cursor: pointer;
+      background: linear-gradient(90deg, var(--secondary), var(--primary));
+      box-shadow: 0 6px 20px rgba(231,76,60,0.35);
+      transition: var(--transition); text-transform: uppercase;
+      text-align: center; text-decoration: none;
+    }
+    .btn-main:hover, .button-bottom a:hover, .order-btn:hover, .open-popup-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 10px 28px rgba(231,76,60,0.45);
+    }
+    .button-bottom { text-align: center; margin: 28px 0; }
+    .button-bottom a, .button-bottom .open-popup-btn { margin: 0 auto; }
+
+    .video-container { position: relative; text-align: center; margin: 18px 0; }
+    .video-container video {
+      width: 100%; max-width: 800px; border-radius: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+    .mute-btn {
+      position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+      width: 44px; height: 44px; border-radius: 50%; border: none;
+      background: rgba(0,0,0,0.65); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: var(--transition); z-index: 2;
+    }
+    .mute-btn:hover { background: rgba(0,0,0,0.85); }
+    .mute-btn img { width: 24px; height: 24px; }
+
+    .review-card {
+      background: #f4f4f4; border-radius: 10px; padding: 16px; margin-bottom: 18px;
+    }
+    .review-card .row { display: flex; flex-wrap: wrap; align-items: center; }
+    .review-card .col-text { flex: 1 1 60%; min-width: 260px; padding: 8px 14px; }
+    .review-card .col-video { flex: 1 1 40%; min-width: 220px; }
+    .review-card p { font-size: 15px; margin-bottom: 10px; color: #222; }
+    .review-card p:last-child { margin-bottom: 0; }
+
+    .urgency-bar {
+      background: linear-gradient(90deg, #d32f2f, #b71c1c); color: #fff;
+      text-align: center; padding: 12px 14px; font-weight: 700; font-size: 15px;
+      border-radius: 8px; margin-bottom: 20px;
+    }
+
+    .trust-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 20px 0; }
+    .trust-badge {
+      background: #fff; border: 1px solid #e0e0e0; border-radius: 8px;
+      padding: 10px 14px; font-size: 13px; font-weight: 600; color: #333;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .trust-badge::before {
+      content: "✓"; display: inline-flex; align-items: center; justify-content: center;
+      width: 20px; height: 20px; border-radius: 50%; background: #28a745; color: #fff; font-size: 12px;
+    }
+
+    .comments { max-width: 100%; background: #f4f4f4; padding: 22px; border-radius: 12px; }
+    .comments__title { font-size: 22px; margin-bottom: 18px; }
+    .comments__item {
+      display: flex; gap: 14px; background: #fff; border-radius: 10px;
+      padding: 16px; margin-bottom: 16px; box-shadow: var(--shadow-sm);
+    }
+    .comments__avatar img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; }
+    .comments__body { flex: 1; }
+    .comments__info { display: flex; flex-direction: column; margin-bottom: 8px; }
+    .comments__name { font-weight: 700; color: var(--accent); }
+    .time-comments { font-size: 12px; color: #888; }
+    .comments__text p { font-size: 15px; margin-bottom: 10px; color: #333; }
+    .comments__text img { max-width: 280px; border-radius: 6px; margin-top: 8px; }
+    .like-facebook, .panel-funct { margin-top: 10px; }
+    .panel-funct { display: flex; gap: 16px; font-size: 13px; color: #4267B2; }
+
+    #saleAlert {
+      position: fixed; top: 80px; right: -360px; display: none; align-items: center;
+      background: #fff; border: 1px solid #ddd; padding: 14px; border-radius: 10px;
+      width: 320px; max-width: 90vw; box-shadow: var(--shadow); z-index: 111850;
+      transition: right 0.5s ease; gap: 12px;
+    }
+    #saleAlert.show { right: 16px; }
+    #saleAlert img { width: 56px; height: 56px; object-fit: contain; border-radius: 6px; background: #f5f5f5; }
+    .alert-text { font-size: 14px; line-height: 1.4; }
+    .alert-text strong { color: #2e7d32; }
+
+    /* Order Popup - no close button */
+    .order-popup {
+      display: none; position: fixed; inset: 0; z-index: 185100;
+      align-items: center; justify-content: center; padding: 16px;
+      background: rgba(0,0,0,0.75); backdrop-filter: blur(5px);
+    }
+    .order-popup.is-visible { display: flex; }
+    .order-popup .popup-container {
+      position: relative; width: 100%; max-width: 520px; max-height: 92vh;
+      overflow-y: auto; background: #fff; border-radius: 14px;
+      box-shadow: var(--shadow); animation: popupIn 0.3s ease;
+    }
+    @keyframes popupIn { from { opacity: 0; transform: translateY(20px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    .order-popup .popup-content { padding: 22px; }
+    .order-section {
+      background: linear-gradient(135deg, #fff5f5, #fffdf5);
+      border: 2px solid var(--primary); border-radius: var(--radius);
+      padding: 24px 18px;
+    }
+    .order-popup .order-section { border: none; margin: 0; }
+    .countdown-wrap { text-align: center; margin-bottom: 18px; }
+    .countdown-wrap p { margin-bottom: 8px; font-weight: 700; }
+    .vip-countdown {
+      display: inline-block; padding: 12px 22px;
+      background: linear-gradient(145deg, var(--primary), var(--secondary));
+      color: #fff; font-size: 26px; font-weight: 700; border-radius: 50px;
+      animation: glow 1.5s infinite alternate; min-width: 110px;
+    }
+    @keyframes glow {
+      0% { box-shadow: 0 0 10px rgba(231,76,60,0.5); }
+      100% { box-shadow: 0 0 24px rgba(243,156,18,0.6); }
+    }
+    .offer-price { text-align: center; font-size: 20px; margin-bottom: 14px; line-height: 1.6; }
+    .discount-text { color: var(--primary); font-weight: 700; }
+    .blinking-price { color: var(--secondary); font-weight: 800; font-size: 24px; animation: blink 1s infinite; }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.55;} }
+    .stock-row { text-align: center; margin-bottom: 18px; font-size: 16px; }
+    .nums-inp { background: none; border: none; width: 34px; font-size: 20px; font-weight: 700; color: var(--primary); text-align: center; }
+
+    .order-form label { display: block; font-weight: 600; margin: 12px 0 6px; font-size: 14px; }
+    .order-form input, .order-form textarea {
+      width: 100%; padding: 12px 14px; border: 2px solid #ddd;
+      border-radius: 8px; font-size: 15px; transition: var(--transition);
+    }
+    .order-form input:focus, .order-form textarea:focus {
+      border-color: var(--primary); outline: none; box-shadow: 0 0 0 3px rgba(231,76,60,0.12);
+    }
+    .order-form textarea { resize: vertical; }
+
+    .gs-overlay {
+      display: none; position: fixed; inset: 0; z-index: 185099;
+      align-items: center; justify-content: center; padding: 20px;
+      background: rgba(0,0,0,0.55); backdrop-filter: blur(6px);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      text-align: center; color: #fff;
+    }
+    .gs-overlay.is-visible { display: flex; }
+    .gs-overlay__panel { max-width: 480px; width: 100%; background: rgba(0,0,0,0.6); border-radius: 14px; padding: 24px; }
+    .gs-spinner { width: 46px; height: 46px; border-radius: 50%; border: 4px solid rgba(255,255,255,0.15); border-top-color: #fff; animation: gs-spin 1s linear infinite; margin: 0 auto 14px; }
+    @keyframes gs-spin { to { transform: rotate(360deg); } }
+    .gs-overlay__title { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .gs-overlay__text { font-size: 15px; color: #eee; }
+    .gs-overlay__error { color: #ffcdd2; font-weight: 600; margin-top: 12px; display: none; }
+
+    .whatsapp-btn {
+      position: fixed; bottom: 20px; right: 20px; z-index: 9999;
+      background: #25D366; color: #fff; padding: 12px 18px; border-radius: 50px;
+      display: flex; align-items: center; gap: 8px; text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: var(--transition);
+    }
+    .whatsapp-btn:hover { transform: scale(1.08); }
+    .whatsapp-icon { width: 22px; height: 22px; fill: #fff; }
+    .whatsapp-text { font-size: 14px; font-weight: 600; }
+    .whatsapp-btn::before {
+      content: ""; position: absolute; inset: 0; border-radius: 50px;
+      background: rgba(37,211,102,0.5); animation: pulse-wa 2s infinite; z-index: -1;
+    }
+    @keyframes pulse-wa { 0%{transform:scale(1);opacity:0.6;} 70%{transform:scale(1.4);opacity:0;} 100%{transform:scale(1.4);opacity:0;} }
+
+    .footer__in { text-align: center; padding: 28px 16px; font-size: 14px; color: #666; background: #fff; }
+
+    @media (max-width: 768px) {
+      .navbar { padding: 8px 10px; gap: 8px; }
+      .navbar img { height: 38px; }
+      .navbar h1 { font-size: 13px; }
+      .navbar h1 p { font-size: 10px; }
+      .hero-title { font-size: 20px; }
+      .btn-main, .button-bottom a, .order-btn, .open-popup-btn { font-size: 16px; padding: 14px 22px; }
+      .vip-countdown { font-size: 22px; padding: 10px 18px; }
+      .offer-price { font-size: 17px; }
+      .blinking-price { font-size: 20px; }
+      .review-card .col-text, .review-card .col-video { flex: 1 1 100%; }
+      .comments { padding: 14px; }
+      .comments__item { flex-direction: column; gap: 10px; }
+      .popup-content { padding: 16px; }
+      .whatsapp-text { display: none; }
+    }
+    @media (max-width: 360px) {
+      .hero-title { font-size: 18px; }
+      .btn-main, .button-bottom a, .order-btn, .open-popup-btn { font-size: 15px; padding: 13px 18px; }
+      .popup-content { padding: 14px; }
+    }
+  </style>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return; n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '922611913871410');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=922611913871410&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+</head>
+
+<body class="iti-mobile">
+  <!-- Sale Alert -->
+  <div id="saleAlert">
+    <img src="prod.png" alt="Product" onerror="this.src='prod.png'; this.onerror=null;">
+    <div class="alert-text">
+      <strong>Priya Sharma</strong> ने Allahabad से <strong>HORSEFIRE Capsule</strong> ₹1499 का 8 मिनट पहले ऑर्डर किया
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#" onclick="openPopup(); return false;"><img src="logo.png" alt="Logo"></a>
+    <h1>
+      National Health Authority
+      <p>Government of India</p>
+    </h1>
+    <a href="#" onclick="openPopup(); return false;"><img src="pmjay.png" alt="PMJAY"></a>
+  </nav>
+
+  <div class="main-wrap">
+    <div class="container-custom">
+      <div class="badge-info">Today's Date: <span id="todayDate"></span></div>
+
+      <h1 class="hero-title">
+        <b>आप 12 दिनों में, लिंग का आकार कम से कम 8-9 सेंटीमीटर तक बढ़ा सकते हैं और लगातार पाँच बार संभोग कर सकते हैं</b>
+      </h1>
+
+      <div class="hero-badge">
+        <b>यह स्वास्थ्य एवं परिवार कल्याण मंत्रालय से प्रमाणित है</b>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <img src="expert-ramdev.jpg" alt="Expert" class="rounded shadow" style="margin:0 auto 18px;">
+        </div>
+        <div class="col-12 col-md-6">
+          <p>मेरा नाम बाबा रामदेव है, और मैं आपके सामने लाया हूँ लिंग का आकार बढ़ाने और संभोग की अवधि बढ़ाने का वैज्ञानिक तरीका।</p>
+          <p>इस उपाय के कई स्पष्ट प्रभाव हैं:</p>
+          <div class="benefit-list">
+            <ul>
+              <li>आपका लिंग लंबा और मोटा हो जाएगा</li>
+              <li>स्तंभन दोष गायब हो जाएगा।</li>
+              <li>संभोग की अवधि कम से कम 20 मिनट तक बढ़ जाएगी।</li>
+              <li>आपका यौन जीवन बेहतर हो जाएगा।</li>
+              <li>आपकी महिला साथिन को लगातार पाँच बार कामोन्माद आ पाएगा।</li>
+            </ul>
+          </div>
+
+          <button class="open-popup-btn" onclick="openPopup(); return false;">अभी ऑर्डर करें 1499/-</button>
+
+          <div class="video-container">
+            <video autoplay id="videoTop" loop muted playsinline style="width:100%; border-radius:8px;">
+              <source src="devi.mp4" type="video/mp4">
+            </video>
+            <button class="mute-btn" id="muteBtnTop"><img src="mute.png" alt="Mute"></button>
+          </div>
+          <p style="padding-top:10px; margin-bottom:0"><b>मैं इसका सिर्फ वादा नहीं कर रहा हूँ, पर साबित कर सकता हूँ, वैज्ञानिक प्रयोगों के माध्यम से।</b></p>
+        </div>
+      </div>
+
+      <p style="clear:both; padding-top:20px;">
+        यदि आपने पहले किन्हीं दवाओं के साथ इस समस्या को हल करने की कोशिश की है, तो आप जानते हैं कि सभी प्रयास व्यर्थ रहे थे और यदि कोई प्रभाव हुआ भी, तो उससे केवल इरेक्शन में सुधार हुआ और वह भी बस अस्थायी तौर पर। अगर आप पहली बार इसका प्रयास कर रहे हैं तो आप भाग्यशाली हैं। अब आप सही तरीके के बारे में जान जाएँगे, और बहुत सारे पैसे बचा पाएंगे जो बेकार उत्पादों पर खर्च हो सकते थे। मैं आपको अपने सहायक राजेश की एक असली तस्वीर दिखाना चाहता हूँ। उसका लिंग 8.9 सेमी बढ़ गया, और संभोग की अवधि 15 मिनट बढ़ गई।
+      </p>
+
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div class="video-section" style="position:relative; margin-bottom:20px;">
+            <video id="promoVideo" autoplay loop muted playsinline style="width:100%; border-radius:10px;">
+              <source src="ramdev-videi.mp4" type="video/mp4">
+            </video>
+            <button id="playButton" onclick="playVideo(); return false;" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); background:#dc3545; color:#fff; padding:12px 22px; border:none; border-radius:50px; font-weight:700; cursor:pointer;">पूरी खबर सुनने के लिए</button>
+          </div>
+          <center><p class="m-0 p-2"><small><i>इस उपाय का 2 हफ्तों तक प्रयोग करने के बाद यह प्रभाव सामने आया।</i></small></p></center>
+        </div>
+        <div class="col-12 col-md-6">
+          <img src="public12.avif" alt="Result" class="rounded shadow" style="margin:0 auto 18px;">
+        </div>
+      </div>
+
+      <div class="benefit-list" style="margin-top:24px;">
+        <ul>
+          <li>उसका लिंग पंप या जैल के प्रयोग के बिना 8.9 सेमी बढ़ गया।</li>
+          <li>लिंग की दीवारें 63% बढ़ गईं और वह अब लगातार पाँच बार संभोग कर पाता है।</li>
+          <li>हर बार जब भी वह संभोग करना चाहता है, उसका लिंग लोहे की तरह मज़बूत और कड़ा होता है।</li>
+          <li>इरेक्शन लंबे समय तक बना रहता है, और उसकी यौन साथिन के कामोन्माद की गिनती बढ़ गई।</li>
+          <li>उसकी कामेच्छा और टेस्टोस्टेरोन का स्तर बढ़ गया, और बिस्तर में ऊर्जा और लिंग की संवेदनशीलता में बहुत सुधार हुआ।</li>
+        </ul>
+      </div>
+
+      <div class="button-bottom"><button class="open-popup-btn" onclick="openPopup(); return false;">ऑर्डर करें 1499/-</button></div>
+
+      <div class="video-container">
+        <video autoplay id="videoMiddle" loop muted playsinline style="width:100%; border-radius:8px;">
+          <source src="cardrive.mp4" type="video/mp4">
+        </video>
+        <button class="mute-btn" id="muteBtnMiddle"><img src="mute.png" alt="Mute"></button>
+      </div>
+
+      <br><br>
+      <center><p><b>मेरा आपसे अनुरोध है क्योंकि मैं सच में चाहता हूँ कि आप इस उपाय के शक्तिशाली प्रभाव को देखें।</b></p></center><br>
+
+      <p>कई प्रयोग ऐसे ही परिणामों की पुष्टि करते हैं। अध्ययनों में, हमने परीक्षण से पहले और बाद में स्वयंसेवकों के टेस्टोस्टेरोन के स्तर को मापा, साथ ही जननांगों के आकार को भी। और 97% मामलों में इस उपाय की प्रभावशीलता की पुष्टि हो गई।</p>
+
+      <!-- Review 1 -->
+      <div class="review-card">
+        <div class="row">
+          <div class="col-video">
+            <div class="video-container">
+              <video autoplay id="video1" loop muted playsinline style="width:100%; border-radius:8px;">
+                <source src="review1.mp4" type="video/mp4">
+              </video>
+              <button class="mute-btn" id="muteBtn1"><img src="mute.png" alt="Mute"></button>
+            </div>
+          </div>
+          <div class="col-text">
+            <b><p>मेरा नाम तन्मय रॉय है मैं कोलकाता का रहने वाला हूं मुझे नशीली पदार्थ की सेवन की वजह से सेक्सुअल प्रॉब्लम होने लगा था।</p>
+            <p class="mb-0">जैसे की सेक्स के दौरान जल्दी वीर्य का निकल जाना दोबारा खड़ा नहीं होना उसके बाद मैं हॉर्स पावर टैबलेट मंगाई और उसे इस्तेमाल किया अब मैं पूरी तरीके से ठीक हूं धन्यवाद।</p></b>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="review-card">
+        <div class="row">
+          <div class="col-video">
+            <div class="video-container">
+              <video autoplay id="video2" loop muted playsinline style="width:100%; border-radius:8px;">
+                <source src="review2.mp4" type="video/mp4">
+              </video>
+              <button class="mute-btn" id="muteBtn2"><img src="mute.png" alt="Mute"></button>
+            </div>
+          </div>
+          <div class="col-text">
+            <b>
+              <p>HORSEFIRE Capsules ने मेरे लिंग का आकार 6.9 सेमी बढ़ा दिया, और मेरा लिंग कड़ा भी हो गया।</p>
+              <p class="mb-0">मेरा नाम राजकुमार गुप्ता है मेरी उम्र 42 साल है मैं कोलकाता का रहने वाला हूं शादी के 4 साल बाद मुझे सेक्स प्रॉब्लम की समस्या आने लगी मेरी पार्टनर के साथ मेरा अनबन होने लगा मैं उसको खुश नहीं कर पता था मैं बहुत परेशान था मैंने कई जगह से सस्ती दवाइयां ली पर काम नहीं किया फिर मैं हॉर्स फायर मंगाई और उसे किया आज मेरी सेक्सुअल लाइफ और मेरी बीवी मेरा पार्टनर सब खुश है बहुत-बहुत धन्यवाद।</p>
+            </b>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="review-card">
+        <div class="row">
+          <div class="col-video">
+            <div class="video-container">
+              <video autoplay id="video3" loop muted playsinline style="width:100%; border-radius:8px;">
+                <source src="review3.mp4" type="video/mp4">
+              </video>
+              <button class="mute-btn" id="muteBtn3"><img src="mute.png" alt="Mute"></button>
+            </div>
+          </div>
+          <div class="col-text">
+            <strong>
+              <p>मेरा नाम शंकर चक्रवर्ती है मेरी उम्र 40 साल है मैं वेस्ट बंगाल का रहने वाला हूं शादी के कुछ साल बाद में काफी कमजोर होने लगा मेरी बीवी मुझसे शिकायत करने लगी कि अब तुमसे कुछ नहीं हो पता तुम बहुत कमजोर हो गए हो फिर मैं अपने गांव में डॉक्टर को दिखाई नहीं सही हुआ।</p>
+              <p class="mb-0">आसपास के हकीम से दवा ली नहीं सही हुआ कई जगह से ऑनलाइन दवाई मंगाई लेकिन कोई फायदा नहीं मिला फिर मुझे ऑनलाइन हॉर्स फायर के बारे में फायदा मिला वहां से लिया आज मैं ठीक हो गया मेरी जीवन बच गया मेरा घर टूटने से बच गया धन्यवाद।</p>
+            </strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-bottom"><button class="open-popup-btn" onclick="openPopup(); return false;">ऑर्डर करें 1499/-</button></div>
+
+      <h2 class="text-center"><b>कैसे विज्ञान की मदद से लिंग की लंबाई में 7 सेमी का इजाफा किया जाए, और स्तंभन शक्ति को बढ़ाया जाए?</b></h2>
+      <p>सब कुछ बहुत सरल है। गोलियों के शरीर में पहुँचने के बाद, कुछ दिनों में ही आप देखेंगे कि आपको अक्सर इरेक्शन होना शुरू हो गए हैं। आपको अपना आहार बदलने की आवश्यकता नहीं है, न ही किसी तरह के व्यायाम की।</p>
+      <p>यह जादू नहीं है, यह विज्ञान है जो आपके मर्दाना काम को बेहतर बनाने में मदद करता है। यह अवयवों के एक विशेष मिश्रण का जटिल प्रभाव है।</p>
+
+      <div class="row">
+        <div class="col-12 col-md-6"><img src="graph.gif" alt="Graph" class="rounded shadow" style="margin:0 auto 18px;"></div>
+        <div class="col-12 col-md-6"><img src="public14.avif" alt="Stats" class="rounded shadow" style="margin:0 auto 18px;"></div>
+      </div>
+
+      <p style="margin-top:18px;">संभोग की अवधि बढ़ गई। संभोग के साथी द्वारा अनुभव किए गए कामोन्माद की गिनती। टेस्टोस्टेरोन का स्तर। लिंग का आकार। लिंग की मोटाई। कामेच्छा में बढ़ोतरी।</p>
+
+      <div class="button-bottom"><button class="open-popup-btn" onclick="openPopup(); return false;">ऑर्डर करें 1499/-</button></div>
+
+      <h2><b>HORSEFIRE Capsules का ऑर्डर अभी देना क्यों ज़रूरी हैं।</b></h2>
+      <p>जब आपका लिंग छोटा होता है, तो आप हमेशा शर्मिंदगी और आत्मविश्वास की कमी महसूस करते हैं। पर अब आप जान लीजिए कि आपने समाधान ढूंढ लिया है।</p>
+      <p><b>मेरा आपसे अनुरोध है क्योंकि मैं सच में चाहता हूँ कि आप इस उपाय के शक्तिशाली प्रभाव को देखें।</b></p>
+      <p>प्रयोगों से पता चला है कि उत्पाद का फार्मूला शुद्ध और प्राकृतिक है। इसमें मुख्य रूप से दुर्लभ जड़ी बूटियों और प्राकृतिक अर्क शामिल हैं।</p>
+
+      <div class="row">
+        <div class="col-12 col-md-6"><img src="sert.webp" alt="Certificate" class="rounded shadow" style="margin:0 auto 18px;"></div>
+        <div class="col-12 col-md-6"><img src="public15.avif" alt="Proof" class="rounded shadow" style="margin:0 auto 18px;"></div>
+      </div>
+
+      <h2><b>आप चाहते हैं कि आप भी उन हज़ारों लोगों से जुड़ें, जिन्हें अपने 20 सेंटीमीटर लंबे लिंग पर गर्व है?</b></h2>
+      <p>मैंने आपको बिना किसी परेशानी के इस उपाय के बारे में सारी जानकारी दी। अब आप जानते हैं कि यह कैसे काम करता है और यह आपकी मदद कैसे कर सकता है।</p>
+      <p>यह बहुत सरल है। आप केवल वास्तविक परिणामों के लिए भुगतान करेंगे, न कि वादों के लिए। इस सेवा को पाने के लिए, कृपया नीचे दिया गया फ़ॉर्म भरें और हम आपको फोन करेंगे।</p>
+
+      <div class="urgency-bar">🔥 सीमित स्टॉक - केवल आज की शाम तक 90% छूट 🔥</div>
+
+      <div class="alert alert-danger border-0" role="alert" style="background:#fff5f5; border-radius:10px; padding:18px;">
+        <center><p><b>जानना ज़रूरी है:</b></p></center>
+        <div class="row">
+          <div class="col-12 col-md-6"><img src="sawdhan.png" alt="Caution" class="rounded shadow" style="margin:0 auto 18px;"></div>
+          <div class="col-12 col-md-6"><img src="public16.avif" alt="Privacy" class="rounded shadow" style="margin:0 auto 18px;"></div>
+        </div>
+        <p style="margin-top:14px;">100% गारंटी। आपका ऑर्डर किसी लोगो, टिकट या उत्पाद के बारे में किसी तरह की जानकारी के बिना, सलेटी रंग के एक बक्से में पैक होगा।</p>
+        <center><p class="m-0 font-weight-bold">पूरी तरह से गुमनाम।</p></center>
+      </div>
+
+      <img src="./index_files/Group1208.webp" alt="Group" style="border: double;" class="rounded mx-auto d-block img-fluid">
+
+      <div class="button-bottom"><button class="open-popup-btn" onclick="openPopup(); return false;">ऑर्डर करें 1499/-</button></div>
+
+      <p>अब HORSEFIRE Capsules के कई नकली कॉपी प्रोडक्ट बनने लगे हैं इसलिए इसे केवल सप्लायर की ऑफिशियल साइट से ही ऑर्डर करें।</p>
+      <p><b>हम अपने PRODUCT को बिचौलियों से पीछा छुड़वाते हैं और हम यह भी गारंटी देते हैं: कि अगर उत्पाद प्रभावी नहीं है तो खरीद की कीमत की 100% वापसी हो जाएगी। यह छूट सीमित समय तक उपलब्ध है।</b></p>
+
+      <div class="trust-badges">
+        <div class="trust-badge">100% Natural</div>
+        <div class="trust-badge">Ayurvedic Formula</div>
+        <div class="trust-badge">Cash on Delivery</div>
+        <div class="trust-badge">Free Shipping</div>
+        <div class="trust-badge">Money Back Guarantee</div>
+      </div>
+
+      <div class="button-bottom pb-0"><button class="open-popup-btn" onclick="openPopup(); return false;">ऑर्डर करें 1499/-</button></div>
+
+      <!-- Comments -->
+      <div class="comments">
+        <h2 class="comments__title">टिप्पणियाँ</h2>
+        <div class="comments__item">
+          <div class="comments__avatar"><img src="ava1.webp" alt="Avatar"></div>
+          <div class="comments__body">
+            <div class="comments__info">
+              <div class="time-comments">1 मिनट पहले</div>
+              <span class="comments__name">Jobin Dodiya (Bombay)</span>
+            </div>
+            <div class="comments__text">
+              <p>2 हफ्तों में मेरा लिंग 9 सेमी बढ़ गया, अब सभी लड़कियाँ मेरा पीछा करती हैं।</p>
+              <p><img src="coms1.webp" alt="Proof"></p>
+            </div>
+            <div class="like-facebook"><a href="#" onclick="openPopup(); return false;"><img src="like.png" alt="Like"></a></div>
+            <div class="panel-funct"><div class="add-comment">Add comment</div><div class="share"><a href="#" onclick="openPopup(); return false;">Share</a></div></div>
+          </div>
+        </div>
+        <div class="comments__item">
+          <div class="comments__avatar"><img src="ava2.webp" alt="Avatar"></div>
+          <div class="comments__body">
+            <div class="comments__info">
+              <div class="time-comments">1 मिनट पहले</div>
+              <span class="comments__name">Neerendra Bhakta (Delhi)</span>
+            </div>
+            <div class="comments__text">
+              <p>मेरा लिंग दुगुना बड़ा हो गया है!</p>
+              <p><img src="./index_files/coms2.webp" alt="Proof"></p>
+            </div>
+            <div class="like-facebook"><a href="#" onclick="openPopup(); return false;"><img src="like.png" alt="Like"></a></div>
+            <div class="panel-funct"><div class="add-comment">Add comment</div><div class="share"><a href="#" onclick="openPopup(); return false;">Share</a></div></div>
+          </div>
+        </div>
+        <div class="comments__item">
+          <div class="comments__avatar"><img src="ava3.webp" alt="Avatar"></div>
+          <div class="comments__body">
+            <div class="comments__info">
+              <div class="time-comments">16 मिनट पहले</div>
+              <span class="comments__name">Peter Mathai (Delhi)</span>
+            </div>
+            <div class="comments__text"><p>क्या कोई पुरुष 11 सेमी के लिंग के साथ खुश हो सकता है? बेशक नहीं। इसीलिए मैंने HORSEFIRE Capsules की मदद से अपनी लिंगवृद्धि कर ली।</p></div>
+            <div class="like-facebook"><a href="#" onclick="openPopup(); return false;"><img src="like.png" alt="Like"></a></div>
+            <div class="panel-funct"><div class="add-comment">Add comment</div><div class="share"><a href="#" onclick="openPopup(); return false;">Share</a></div></div>
+          </div>
+        </div>
+        <div class="comments__item">
+          <div class="comments__avatar"><img src="ava4.webp" alt="Avatar"></div>
+          <div class="comments__body">
+            <div class="comments__info">
+              <div class="time-comments">16 मिनट पहले</div>
+              <span class="comments__name">Juhi Narayan (Ahmedabad)</span>
+            </div>
+            <div class="comments__text"><p>मेरे पति और मेरे बीच सेक्स संबंध लगभग बंद हो गए थे। जैसे ही मुझे HORSEFIRE Capsules के बारे में पता चला, मैंने तुरंत उसे अपने पति के लिए मँगा लिया।</p></div>
+            <div class="like-facebook"><a href="#" onclick="openPopup(); return false;"><img src="like.png" alt="Like"></a></div>
+            <div class="panel-funct"><div class="add-comment">Add comment</div><div class="share"><a href="#" onclick="openPopup(); return false;">Share</a></div></div>
+          </div>
+        </div>
+        <div class="comments__item">
+          <div class="comments__avatar"><img src="ava5.webp" alt="Avatar"></div>
+          <div class="comments__body">
+            <div class="comments__info">
+              <div class="time-comments">16 मिनट पहले</div>
+              <span class="comments__name">Rajesh Yadu Gala (Bangalore)</span>
+            </div>
+            <div class="comments__text">
+              <p>यह प्रोडक्ट कारगर है। एक हफ्ते में मेरा लिंग 8 सेमी बढ़ गया।</p>
+              <p><img src="coms4.webp" alt="Proof"></p>
+            </div>
+            <div class="like-facebook"><a href="#" onclick="openPopup(); return false;"><img src="like.png" alt="Like"></a></div>
+            <div class="panel-funct"><div class="add-comment">Add comment</div><div class="share"><a href="#" onclick="openPopup(); return false;">Share</a></div></div>
+          </div>
+        </div>
+        <div class="comments__item">
+          <div class="comments__avatar"><img src="ava6.webp" alt="Avatar"></div>
+          <div class="comments__body">
+            <div class="comments__info">
+              <div class="time-comments">21 मिनट पहले</div>
+              <span class="comments__name">Ajay Panchal (Delhi)</span>
+            </div>
+            <div class="comments__text"><p>अब मैं अपनी बीवी को लगभग 2 घंटे तक सेक्स का आनंद देता हूँ!</p></div>
+            <div class="like-facebook"><a href="#" onclick="openPopup(); return false;"><img src="like.png" alt="Like"></a></div>
+            <div class="panel-funct"><div class="add-comment">Add comment</div><div class="share"><a href="#" onclick="openPopup(); return false;">Share</a></div></div>
+          </div>
+        </div>
+        <div class="comments__item">
+          <div class="comments__avatar"><img src="ava7.webp" alt="Avatar"></div>
+          <div class="comments__body">
+            <div class="comments__info">
+              <div class="time-comments">25 मिनट पहले</div>
+              <span class="comments__name">Hetan Rai (Bombay)</span>
+            </div>
+            <div class="comments__text"><p>मैं जितनी देर तक चाहूँ, सेक्स जारी रख सकता हूँ।</p><p><img src="4.jpg" alt="Proof"></p></div>
+            <div class="like-facebook"><a href="#" onclick="openPopup(); return false;"><img src="like.png" alt="Like"></a></div>
+            <div class="panel-funct"><div class="add-comment">Add comment</div><div class="share"><a href="#" onclick="openPopup(); return false;">Share</a></div></div>
+          </div>
+        </div>
+        <div class="comments__item">
+          <div class="comments__avatar"><img src="ava8.webp" alt="Avatar"></div>
+          <div class="comments__body">
+            <div class="comments__info">
+              <div class="time-comments">43 मिनट पहले</div>
+              <span class="comments__name">Kabeer Lal Nayar</span>
+            </div>
+            <div class="comments__text">
+              <p>मैं लगातार 2 घंटे तक चुदाई कर सकता हूँ और यह ढीला नहीं होता!</p>
+              <p><img src="coms6.webp" alt="Proof"></p>
+            </div>
+            <div class="like-facebook"><a href="#" onclick="openPopup(); return false;"><img src="like.png" alt="Like"></a></div>
+            <div class="panel-funct"><div class="add-comment">Add comment</div><div class="share"><a href="#" onclick="openPopup(); return false;">Share</a></div></div>
+          </div>
+        </div>
+        <div class="comments__item">
+          <div class="comments__avatar"><img src="ava9.webp" alt="Avatar"></div>
+          <div class="comments__body">
+            <div class="comments__info">
+              <div class="time-comments">49 मिनट पहले</div>
+              <span class="comments__name">Raju Raj (Surat)</span>
+            </div>
+            <div class="comments__text">
+              <p>मुझे लगा था कि यह प्रोडक्ट भी काम नहीं करेगा। पर HORSEFIRE Capsules वास्तव में मददगार है!</p>
+              <p><img src="coms3.webp" alt="Proof"></p>
+            </div>
+            <div class="like-facebook"><a href="#" onclick="openPopup(); return false;"><img src="like.png" alt="Like"></a></div>
+            <div class="panel-funct"><div class="add-comment">Add comment</div><div class="share"><a href="#" onclick="openPopup(); return false;">Share</a></div></div>
+          </div>
+        </div>
+        <div class="comments__item">
+          <div class="comments__avatar"><img src="ava10.webp" alt="Avatar"></div>
+          <div class="comments__body">
+            <div class="comments__info">
+              <div class="time-comments">1 घंटे पहले</div>
+              <span class="comments__name">Chitranjan Swamy (Mumbai)</span>
+            </div>
+            <div class="comments__text">
+              <p>मेरा लिंग लंबाई में 7 सेमी और चौड़ाई में 2 सेमी बढ़ गया है। मुझे यह प्रोडक्ट केवल 5 दिनों में डाक के ज़रिए मिल गया था!</p>
+              <p><img src="3gf.gif" alt="Proof"></p>
+            </div>
+            <div class="like-facebook"><a href="#" onclick="openPopup(); return false;"><img src="like.png" alt="Like"></a></div>
+            <div class="panel-funct"><div class="add-comment">Add comment</div><div class="share"><a href="#" onclick="openPopup(); return false;">Share</a></div></div>
+          </div>
+        </div>
+        <div class="comments__item">
+          <div class="comments__avatar"><img src="ava11.webp" alt="Avatar"></div>
+          <div class="comments__body">
+            <div class="comments__info">
+              <div class="time-comments">1 घंटे पहले</div>
+              <span class="comments__name">Ishat Dalal</span>
+            </div>
+            <div class="comments__text">
+              <p>मुझे भी अपना पैकेट 6 दिनों में मिल गया था।</p>
+              <p><img src="public17.avif" alt="Proof"></p>
+            </div>
+            <div class="like-facebook"><a href="#" onclick="openPopup(); return false;"><img src="like.png" alt="Like"></a></div>
+            <div class="panel-funct"><div class="add-comment">Add comment</div><div class="share"><a href="#" onclick="openPopup(); return false;">Share</a></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-bottom pb-0"><button class="open-popup-btn" onclick="openPopup(); return false;">ऑर्डर करें 1499/-</button></div>
+    </div>
+  </div>
+
+  <!-- Order Popup Modal (NO close button) -->
+  <div id="orderPopup" class="order-popup" aria-hidden="true">
+    <div class="popup-container" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+      <div class="popup-content">
+        <div class="order-section">
+          <div class="countdown-wrap">
+            <p>ऑफ़र समाप्त होने में शेष समय:</p>
+            <div class="vip-countdown" id="popupCountdown">9:07</div>
+          </div>
+          <h3 class="offer-price" id="popupTitle">
+            <span class="discount-text">पुरानी कीमत 5000/-, 90% छूट के साथ</span><br>
+            नई कीमत मात्र <span class="blinking-price">1499/- रुपये</span>
+          </h3>
+          <p class="stock-row"><input class="nums-inp" value="17" readonly> पैकेट बचे हैं</p>
+
+          <form autocomplete="off" class="order-form" id="popupOrderForm" name="google-sheet" method="post">
+            <input type="hidden" name="queried_id" value="7078">
+            <input type="hidden" name="LeadSource" value="Ramdev">
+            <input type="hidden" name="CustomerIP" id="CustomerIP_popup" value="">
+
+            <label for="popupName">Full Name</label>
+            <input type="text" id="popupName" name="Name" placeholder="अपना पूरा नाम भरिये" required>
+
+            <label for="popupPhone">Active Phone Number</label>
+            <input type="tel" id="popupPhone" name="Number" maxlength="10" pattern="^[6-9]\d{9}$" placeholder="अपना 10 अंकों का सही मोबाईल नंबर डाले" required>
+
+            <label for="popupAddress">Address</label>
+            <textarea id="popupAddress" name="Address" rows="4" placeholder="कृपया अपना पूरा पता पिनकोड के साथ दर्ज करें अन्यथा आपका ऑर्डर डिलीवर नहीं किया जाएगा!" required></textarea>
+
+            <button type="submit" class="order-btn">अभी ऑर्डर करें</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Submit Overlay -->
+  <div id="gs-overlay" class="gs-overlay" role="alert" aria-hidden="true" aria-live="polite">
+    <div class="gs-overlay__panel">
+      <div class="gs-spinner"></div>
+      <div class="gs-overlay__title" id="gs-overlay-title">Please wait</div>
+      <div class="gs-overlay__text" id="gs-overlay-text">Your order is submitting…</div>
+      <div class="gs-overlay__error" id="gs-overlay-error"></div>
+    </div>
+  </div>
+
+  <div class="footer__in">
+    <div class="foot_en_center">
+      © 2026 Copyright. All rights reserved.
+    </div>
+  </div>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/919891292875" target="_blank" class="whatsapp-btn">
+    <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+      <path d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.7 5.5 2.1 7.9L.2 31.8l8.1-2.1c2.3 1.2 4.9 1.8 7.7 1.8 8.6 0 15.6-7 15.6-15.6S24.6.4 16 .4zm0 28.5c-2.4 0-4.8-.7-6.8-2l-.5-.3-4.8 1.3 1.3-4.7-.3-.5c-1.3-2-2-4.3-2-6.7C2.9 8.6 9.6 1.9 16 1.9S29.1 8.6 29.1 16 22.4 28.9 16 28.9zm7.4-10.7c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.6-.2-.9.2s-1 1.3-1.2 1.5-.4.3-.8.1c-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.3-2.1-2.7-.2-.4 0-.6.1-.8.1-.1.4-.4.6-.6.2-.2.3-.4.4-.6.1-.2.1-.4 0-.6-.1-.2-.9-2.2-1.2-3-.3-.8-.6-.7-.9-.7h-.8c-.3 0-.6.1-.9.4s-1.2 1.2-1.2 3c0 1.8 1.3 3.5 1.5 3.8.2.3 2.5 3.8 6.1 5.3.9.4 1.6.6 2.2.8.9.3 1.7.3 2.3.2.7-.1 2.4-1 2.7-2 .3-1 .3-1.8.2-2-.1-.2-.4-.3-.8-.5z"/>
+    </svg>
+    <span class="whatsapp-text">Chat with us</span>
+  </a>
+
+  <!-- Scripts -->
+  <script src="jquery-3.6.4.min.js.download"></script>
+  <script type="text/javascript" src="intlTelInput.min.js.download"></script>
+  <script src="scc-c2.min.js"></script>
+
+  <script>
+    // Date display
+    function dtime_nums(d, like_eu) {
+      var now = new Date();
+      now.setDate(now.getDate() + d + 1);
+      var dayNum = now.getDate() < 10 ? "0" : "";
+      dayNum += now.getDate();
+      var monthNum = now.getMonth() + 1 < 10 ? "0" : "";
+      monthNum += now.getMonth() + 1;
+      return like_eu ? dayNum + "." + monthNum + "." + now.getFullYear() : monthNum + "." + dayNum + "." + now.getFullYear();
+    }
+    document.getElementById('todayDate').textContent = dtime_nums(-2, true);
+
+    // Popup controls - NO close button, only submit closes it
+    var popup = document.getElementById('orderPopup');
+    var popupOpened = false;
+    function openPopup() {
+      popup.setAttribute('aria-hidden', 'false');
+      popup.classList.add('is-visible');
+      document.body.style.overflow = 'hidden';
+      popupOpened = true;
+    }
+    function closePopup() {
+      popup.classList.remove('is-visible');
+      popup.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      popupOpened = false;
+    }
+
+    // Back button shows popup
+    (function() {
+      var pageUrl = window.location.href;
+      history.pushState({ page: 1 }, '', pageUrl);
+      window.addEventListener('popstate', function(e) {
+        if (!popupOpened) {
+          openPopup();
+          history.pushState({ page: 1 }, '', pageUrl);
+        }
+      });
+    })();
+
+    // Auto-open popup after 15 seconds if not opened
+    setTimeout(function() {
+      if (!popupOpened) openPopup();
+    }, 15000);
+
+    // Countdown timer
+    function startCountdown(timerId, startMins, startSecs) {
+      var el = document.getElementById(timerId);
+      if (!el) return;
+      var total = startMins * 60 + startSecs;
+      function update() {
+        var m = Math.floor(total / 60), s = total % 60;
+        el.textContent = String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+        if (total > 0) total--;
+      }
+      update();
+      setInterval(update, 1000);
+    }
+    startCountdown('popupCountdown', 9, 7);
+
+    // Stock countdown
+    function numsFF() {
+      [30000, 60000, 90000, 120000].forEach(function(ms) {
+        setTimeout(function() {
+          var inp = document.querySelector('.nums-inp');
+          if (inp) {
+            var v = parseInt(inp.value, 10) || 17;
+            if (v > 3) inp.value = v - 1;
+          }
+        }, ms);
+      });
+    }
+    numsFF();
+
+    // Mute buttons helper
+    function setupMute(videoId, btnId) {
+      var video = document.getElementById(videoId);
+      var btn = document.getElementById(btnId);
+      if (!video || !btn) return;
+      var icon = btn.querySelector('img');
+      var muteSrc = 'mute.png';
+      var speakerSrc = 'https://img.icons8.com/ios-filled/50/ffffff/speaker.png';
+      btn.addEventListener('click', function() {
+        video.muted = !video.muted;
+        if (icon) icon.src = video.muted ? muteSrc : speakerSrc;
+      });
+    }
+    setupMute('videoTop', 'muteBtnTop');
+    setupMute('videoMiddle', 'muteBtnMiddle');
+    setupMute('video1', 'muteBtn1');
+    setupMute('video2', 'muteBtn2');
+    setupMute('video3', 'muteBtn3');
+
+    function playVideo() {
+      var v = document.getElementById('promoVideo');
+      if (v) { v.muted = false; v.play(); }
+    }
+
+    // Fake sale alerts
+    (function() {
+      var names = ['Ajay Kumar','Priya Sharma','Ravi Singh','Neha Gupta','Anil Verma','Sanya Patel','Vikram Yadav','Kavita Mehta','Rohit Reddy','Shilpa Desai'];
+      var districts = ['Allahabad','Delhi','Kolkata','Bengaluru','Chennai','Hyderabad','Pune','Jaipur','Ahmedabad','Lucknow'];
+      var alertEl = document.getElementById('saleAlert');
+      function show() {
+        var nm = names[Math.floor(Math.random()*names.length)];
+        var ds = districts[Math.floor(Math.random()*districts.length)];
+        var min = Math.floor(Math.random()*10)+1;
+        alertEl.innerHTML = '<img src="prod.png" alt="Product" onerror="this.src=\'prod.png\'; this.onerror=null;"><div class="alert-text"><strong>'+nm+'</strong> ने '+ds+' से <strong>HORSEFIRE Capsule</strong> ₹1499 का '+min+' मिनट पहले ऑर्डर किया</div>';
+        alertEl.style.display = 'flex';
+        setTimeout(function(){ alertEl.classList.add('show'); }, 50);
+        setTimeout(function(){ alertEl.classList.remove('show'); }, 4500);
+        setTimeout(function(){ alertEl.style.display = 'none'; }, 5000);
+      }
+      show();
+      setInterval(show, 10000);
+    })();
+
+    // IP tracking
+    fetch('https://api.ipify.org?format=json')
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        var popup = document.getElementById('CustomerIP_popup');
+        if (popup) popup.value = data.ip;
+      })
+      .catch(function(){});
+
+    // Form submission with network fallback
+    (function() {
+      var scriptURL = 'https://script.google.com/macros/s/AKfycbxfHJJs0t89ugIipkaqeUwf_wnEj3kytxDbOMVQk3i4UyPpulQCgWTfjz0mMC5UcTKQtw/exec';
+      var overlay = document.getElementById('gs-overlay');
+      var oTitle = document.getElementById('gs-overlay-title');
+      var oText = document.getElementById('gs-overlay-text');
+      var oErr = document.getElementById('gs-overlay-error');
+
+      function showOverlay(title, text) {
+        oTitle.textContent = title;
+        oText.textContent = text;
+        oErr.style.display = 'none'; oErr.textContent = '';
+        overlay.setAttribute('aria-hidden', 'false');
+        overlay.classList.add('is-visible');
+      }
+      function hideOverlay() { overlay.classList.remove('is-visible'); overlay.setAttribute('aria-hidden', 'true'); }
+      function showError(msg) { oErr.style.display = 'block'; oErr.textContent = msg; }
+
+      function enableBtn(btn, enable) {
+        if (!btn) return;
+        btn.disabled = !enable;
+        if (enable) btn.removeAttribute('aria-disabled');
+        else btn.setAttribute('aria-disabled', 'true');
+      }
+
+      async function submitForm(form, btn) {
+        try {
+          enableBtn(btn, false);
+          showOverlay('Please wait', 'Your order is submitting…');
+
+          var response = await fetch(scriptURL, { method: 'POST', body: new FormData(form) });
+          if (!response.ok) throw new Error('Server returned ' + response.status);
+          closePopup();
+          window.location.href = 'thankyou.html';
+        } catch (err1) {
+          console.warn('CORS/POST failed, trying no-cors fallback:', err1);
+          try {
+            await fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: new FormData(form) });
+            setTimeout(function(){ closePopup(); window.location.href = 'thankyou.html'; }, 1200);
+          } catch (err2) {
+            console.error('Submission error:', err2);
+            showError('Network error — please check your connection and try again.');
+            enableBtn(btn, true);
+            hideOverlay();
+          }
+        }
+      }
+
+      document.querySelectorAll('form[name="google-sheet"]').forEach(function(form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          if (!form.checkValidity()) { form.reportValidity(); return; }
+          var btn = form.querySelector('button[type="submit"]');
+          submitForm(form, btn);
+        });
+      });
+    })();
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0bf89df8c4ae40f',t:'MTc4MTUwNTE1Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
